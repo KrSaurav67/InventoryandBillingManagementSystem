@@ -25,7 +25,9 @@ import {
   X,
 } from "lucide-react";
 
-const API = axios.create({ baseURL: "http://localhost:5000/api" });
+const API = axios.create({
+  baseURL: "https://inventory-billing-api-jgdf.onrender.com/api"
+});
 const money = (n) =>
   new Intl.NumberFormat("en-IN", {
     style: "currency",
