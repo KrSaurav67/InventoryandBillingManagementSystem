@@ -74,11 +74,18 @@ function App() {
       return null;
     }
   });
-  const [page, setPage] = useState("dashboard");
+  const [page, setPage] = useState(() => {
+  return localStorage.getItem("ib_page") || "dashboard";
+});
   const [mobileNav, setMobileNav] = useState(false);
   const [notice, setNotice] = useState(null);
   const [refresh, setRefresh] = useState(0);
   const [search, setSearch] = useState("");
+  
+useEffect(() => {
+  localStorage.setItem("ib_page", page);
+}, [page]);
+
 
   const notify = (message, type = "success") => {
     setNotice({ message, type });
